@@ -1,23 +1,55 @@
-const printBoard = board => {
-  console.log('Current Board:');
-  console.log(board[0].join(' | ')); // adds the | character between ' ' for the first row
-  console.log(board[1].join(' | ')); // adds the | character between ' ' for the second row
-  console.log(board[2].join(' | ')); // adds the | character between ' ' for the third row
+// Dynamically Generate a Player Board
+const generatePlayerBoard = (numberOfRows, numberOfColumns) => {
+  let board = [];
+
+  // for loop iterating through numberOfRows
+  for (let generateRows = 0; generateRows < numberOfRows; generateRows++) {
+    // Create an empty row array
+    let row = [];
+    // for loop iterating through numberOfColumns
+    for (let generateColumns = 0; generateColumns < numberOfColumns; generateColumns++) {
+      // Push the empty spaces onto the row array
+      row.push(' ');
+    }
+    // Push the row onto the board array
+    board.push(row);
+  }
+  // Return the board array
+  return board;
 };
 
-// blank minesweeper board
-const board = [
-  [' ', ' ', ' '],
-  [' ', ' ', ' '],
-  [' ', ' ', ' ']
-];
+// Dynamically Generate a Bomb Board
+const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
+  let board = [];
 
-printBoard(board);
+  // for loop iterating through numberOfRows
+  for (let generateRows = 0; generateRows < numberOfRows; generateRows++) {
+    // Create an empty row array
+    let row = [];
+    // for loop iterating through numberOfColumns
+    for (let generateColumns = 0; generateColumns < numberOfColumns; generateColumns++) {
+      // Push the empty spaces onto the row array
+      row.push(null);
+    }
+    // Push the row onto the board array
+    board.push(row);
+  }
 
-// change second element of first nested array to '1' representing a player's guess
-board[0][1] = '1';
+  let numberOfBombsPlaced = 0;
+    while (numberOfBombsPlaced < numberOfBombs) {
+      // Generate a random row index
+      randomRowIndex = Math.floor(Math.random() * numberOfRows);
+      // Generate a random column index
+      randomColumnIndex = Math.floor(Math.random() * numberOfColumns);
+      // Place the bomb at that row and columns
+      board[randomRowIndex][randomColumnIndex] = 'B';
+      // Increment numberOfBombsPlaced
+      if (board[randomRowIndex][randomColumnIndex] !== 'B') {
+        board[randomRowIndex][randomColumnIndex] = 'B';
+        numberOfBombsPlaced++;
+      }
+    }
 
-// change the third element of the third array to 'B' representing a bomb on the board
-board[2][2] = 'B';
-
-printBoard(board);
+  // Return the board array
+  return board;
+};
