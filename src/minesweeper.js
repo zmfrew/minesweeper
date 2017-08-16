@@ -36,6 +36,7 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
   }
 
   let numberOfBombsPlaced = 0;
+  // An important note: The code in your while loop has the potential to place bombs on top of already existing bombs. This will be fixed when you learn about control flow.
     while (numberOfBombsPlaced < numberOfBombs) {
       // Generate a random row index
       randomRowIndex = Math.floor(Math.random() * numberOfRows);
