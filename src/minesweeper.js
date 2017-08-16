@@ -1,25 +1,23 @@
+const printBoard = board => {
+  console.log('Current Board:');
+  console.log(board[0].join(' | ')); // adds the | character between ' ' for the first row
+  console.log(board[1].join(' | ')); // adds the | character between ' ' for the second row
+  console.log(board[2].join(' | ')); // adds the | character between ' ' for the third row
+};
 
-// variable showing a blank line in a board
-const blankLine = '  |   |  ';
+// blank minesweeper board
+const board = [
+  [' ', ' ', ' '],
+  [' ', ' ', ' '],
+  [' ', ' ', ' ']
+];
 
-// title of blank game
-console.log("This is what an empty board would look like:");
+printBoard(board);
 
-// creates a blank board by logging the blank line 3 times
-console.log(blankLine);
-console.log(blankLine);
-console.log(blankLine);
+// change second element of first nested array to '1' representing a player's guess
+board[0][1] = '1';
 
-// adds a guessline simulating a random guess clicking the first square in minesweeper
-const guessLine = '1 |   |  ';
+// change the third element of the third array to 'B' representing a bomb on the board
+board[2][2] = 'B';
 
-// adds a bomb (mine) line simulating a click on a bomb
-const bombLine = '  | B |  ';
-
-// title of simulated game with guess and bomb
-console.log("This is what a board with a guess and a bomb on it would look like:");
-
-// creates board with a guess and bomb
-console.log(guessLine);
-console.log(bombLine);
-console.log(blankLine);
+printBoard(board);
