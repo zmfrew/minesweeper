@@ -1,6 +1,6 @@
 // dynamically creates board
 const printBoard = board => {
-  console.log(board.map(row => row.join(' | ')).join('\n'));
+  console.log( board.map(row => row.join(' | ')).join('\n') );
 };
 
 // Dynamically Generate a Player Board
@@ -47,9 +47,7 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
       randomRowIndex = Math.floor(Math.random() * numberOfRows);
       // Generate a random column index
       randomColumnIndex = Math.floor(Math.random() * numberOfColumns);
-      // Place the bomb at that row and columns
-      board[randomRowIndex][randomColumnIndex] = 'B';
-      // Increment numberOfBombsPlaced
+      // Place bomb at random row and column index and ncrement numberOfBombsPlaced
       if (board[randomRowIndex][randomColumnIndex] !== 'B') {
         board[randomRowIndex][randomColumnIndex] = 'B';
         numberOfBombsPlaced++;
