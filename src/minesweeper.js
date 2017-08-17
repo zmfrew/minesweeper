@@ -1,3 +1,8 @@
+// dynamically creates board
+const printBoard = board => {
+  console.log(board.map(row => row.join(' | ')).join('\n'));
+};
+
 // Dynamically Generate a Player Board
 const generatePlayerBoard = (numberOfRows, numberOfColumns) => {
   let board = [];
@@ -54,3 +59,14 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
   // Return the board array
   return board;
 };
+
+// Test the playerBoard function
+let playerBoard = generatePlayerBoard(3, 4);
+
+// Test the bombBoard function
+let bombBoard = generateBombBoard(3, 4, 5);
+
+console.log('Player Board: ');
+printBoard(playerBoard);
+console.log('Bomb Board: ');
+printBoard(bombBoard);
