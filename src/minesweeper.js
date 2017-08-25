@@ -1,3 +1,18 @@
+// create a Board class
+class Board {
+  constructor(numberOfRows, numberOfColumns, numberOfBombs) {
+    this._numberOfBombs = numberOfBombs;
+    this._numberOfTiles = numberOfRows * numberOfColumns;
+    this._playerBoard = Board.generatePlayerBoard(numberOfRows, numberOfColumns);
+    this._bombBoard = Board.generateBombBoard(numberOfRows, numberOfColumns, numberOfBombs);
+  }
+
+  get playerBoard() {
+    this._playerBoard = playerBoard;
+  }
+
+}
+
 // dynamically creates board
 const printBoard = board => {
   console.log( board.map(row => row.join(' | ')).join('\n') );
